@@ -1,55 +1,22 @@
 import requests, json
-poke_name= 'pikachu'
-url = f'https://pokeapi.co/api/v2/pokemon/{poke_name}'
-response = requests.get(url)
 # print(response.json())
-if response.ok:
-    data = response.json()
-    char={}
-    char['pok_name']=data['forms'][0]['name']
-    char['pok_ability']=(data['abilities'][0]['ability']['name'])
-    char['pok_experience']=data['base_experience']
-    char['pok_spirit_img']=data['sprites']['front_shiny']
-    print(char)
+def pokemon_info(name):
+    poke_name = name
+    url = f'https://pokeapi.co/api/v2/pokemon/{poke_name}'
+    response = requests.get(url)
+    if response.ok:
+        data = response.json()
+        char={}
+        char['pok_name']=data['forms'][0]['name']
+        char['pok_ability']=(data['abilities'][0]['ability']['name'])
+        char['pok_experience']=data['base_experience']
+        char['pok_spirit_img']=data['sprites']['front_shiny']
+        return(char)
+print(pokemon_info('pikachu'))
+print(pokemon_info('charizard'))
+print(pokemon_info('eevee'))
+print(pokemon_info('snorlax'))
+print(pokemon_info('joseph'))
+
+
 print('****************** \n')
-    
-poke_name= 'eevee'
-url = f'https://pokeapi.co/api/v2/pokemon/{poke_name}'
-response = requests.get(url)
-# print(response.json())
-if response.ok:
-    data = response.json()
-    char={}
-    char['pok_name']=data['forms'][0]['name']
-    char['pok_ability']=(data['abilities'][0]['ability']['name'])
-    char['pok_experience']=data['base_experience']
-    char['pok_spirit_img']=data['sprites']['front_shiny']
-    print(char)
-print('****************** \n')
-poke_name= 'snorlax'
-url = f'https://pokeapi.co/api/v2/pokemon/{poke_name}'
-response = requests.get(url)
-# print(response.json())
-if response.ok:
-    data = response.json()
-    char={}
-    char['pok_name']=data['forms'][0]['name']
-    char['pok_ability']=(data['abilities'][0]['ability']['name'])
-    char['pok_experience']=data['base_experience']
-    char['pok_spirit_img']=data['sprites']['front_shiny']
-    print(char)
-print('****************** \n')
-poke_name= 'charizard'
-url = f'https://pokeapi.co/api/v2/pokemon/{poke_name}'
-response = requests.get(url)
-# print(response.json())
-if response.ok:
-    data = response.json()
-    char={}
-    char['pok_name']=data['forms'][0]['name']
-    char['pok_ability']=(data['abilities'][0]['ability']['name'])
-    char['pok_experience']=data['base_experience']
-    char['pok_spirit_img']=data['sprites']['front_shiny']
-    print(char)
-    
-   
